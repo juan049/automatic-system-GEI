@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             AreaSeeder::class,
             UserSeeder::class,
             GEIChemicalClassificationSeeder::class,
-            GEIChemicalSeeder::class
+            GEIChemicalSeeder::class,
+            RETCChemicalSeeder::class
         ]);
 
     }

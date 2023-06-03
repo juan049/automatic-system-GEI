@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('area');
             $table->string('password');
-            $table->boolean('is_admin')->default(true);
+            $table->boolean('is_environmental_officer')->default(false);
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
 
@@ -32,6 +33,8 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('percentage', 3, 2, true)->default(0);
             $table->string('cas_number')->unique();
+            $table->boolean('is_g_e_i')->default(false);
+            $table->boolean('is_r_e_t_c')->default(false);
             $table->timestamps();
         });
 
@@ -39,6 +42,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('brand')->default('');
+            $table->boolean('contains_g_e_i_chemical')->default(false);
+            $table->boolean('contains_g_e_i_chemical')->default(false);
             $table->timestamps();
         });
 
@@ -67,7 +72,7 @@ return new class extends Migration
 
         Schema::create('g_e_i_chemicals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('g_e_i_chemical_classification')->constrained();
+            $table->foreignId('g_e_i_chemical_classification_id')->constrained();
             $table->string('name');
             $table->double('cas_number')->unique();
             $table->double('ashrae')->unique();
@@ -86,6 +91,7 @@ return new class extends Migration
 
 
         //TODO pivotes, unidades, constrains
+        //TODO Pivotes: areas-quimicos
 
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\RawMaterial;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,10 @@ class RawMaterialController extends Controller
      */
     public function create()
     {
-        //
+        //Obtengo las áreas
+        $areas = Area::all();
+        //Regreso las vistas
+        return view('insumo.create', compact(['areas']));
     }
 
     /**

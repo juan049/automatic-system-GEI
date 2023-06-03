@@ -42,9 +42,10 @@ class GEIChemicalSeeder extends Seeder
 
             foreach($chemicals as $chemical) {
                 DB::table('g_e_i_chemicals')->insert([
-                    'g_e_i_chemical_classification' => $key, 
+                    'g_e_i_chemical_classification_id' => $key, 
                     'name' => $chemical['name'],
-                    'cas_number' => $chemical['cas_number'],
+                    //Reemplazo guines para que quede mas homogeneo
+                    'cas_number' => str_replace( '-', '', $chemical['cas_number']),
                     'ashrae' => $chemical['ashrae'],
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),

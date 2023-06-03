@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RawMaterialController;
+use App\Models\RawMaterial;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Altas de quimicos
+Route::get('/insumo/alta', [RawMaterialController::class, 'create']);
