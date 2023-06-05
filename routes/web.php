@@ -24,4 +24,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Altas de quimicos
-Route::get('/insumo/alta', [RawMaterialController::class, 'create']);
+Route::get('/insumo/alta', [RawMaterialController::class, 'create'])->named('insumo.create');
+Route::post('/insumo', [RawMaterialController::class, 'store'])->name('insumo.store');

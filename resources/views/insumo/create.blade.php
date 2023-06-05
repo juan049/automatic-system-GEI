@@ -1,11 +1,19 @@
 @extends('layouts.app')
 
+
+
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h3 class="text-center">Da de alta un nuevo insumo</h3>
-            <form action="">
+            <form 
+                action="{{route('insumo.store')}}"
+                method="POST"
+                >
+                @csrf
                 <div class="card mb-3">
                     <div class="card-header">Datos generales</div>
                     <div class="card-body">
@@ -28,26 +36,29 @@
                     <div class="card-body">
                         <table id="table" class="table table-bordered">
                             <thead>
-                                <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">Químico</th>
-                                  <th scope="col">Porcentaje</th>
-                                  <th scope="col">Numero CAS</th>
-                                </tr>
-                              </thead>
-                              <tbody id="tableBody">
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td><input type="text" name="" id=""></td>
-                                  <td><input type="number" min="0" max="100" name="" id=""></td>
-                                  <td><input type="text" name="" id=""></td>
-                                </tr>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Porcentaje</th>
+                                <th scope="col">Numero CAS</th>
+                                <td></td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td><input type="text" name="component-name-1" id="component-name-1"></td>
+                                <td><input min="0" max="100" type="number" name="component-percentage-1" id="component-percentage-1"></td>
+                                <td><input type="text" name="component-cas_number-1" id="component-cas_number-1"></td>
+                                <td id="deleteBtn1" class="text-center text-danger cursor-pointer deleteRowBtn"><i class="bi bi-trash"></i></td>
+                            </tr>
                             </tbody>
-                        </table>
-                        <div class="d-flex justify-content-between">
-                            <button id="addRowBtn" class="btn btn-primary" type="button">Agregar fila</button>
-                            <button id="deleteRowBtn"class="btn btn-danger" type="button">Eliminar fila</button>
+                          </table>
+
+                          <div class="d-flex ">
+                            <button id="addRowBtn" class=" btn btn-primary" type="button">Agregar Fila</button>
                         </div>
+                          
                     </div>
                 </div>
 
@@ -75,6 +86,7 @@
                         </div>
                     </div>
                 </div>    
+                <button type="submit" class="btn btn-success w-100 mt-3">Dar de alta</button>
             </form>
         </div>
     </div>
@@ -97,8 +109,13 @@ table td input {
   padding: 10px;
   box-sizing: border-box;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
 </style>
 
 <script src="{{asset('js/insumo.alta.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
 
 @endsection
