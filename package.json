@@ -13,5 +13,8 @@
         "sass": "^1.56.1",
         "vite": "^4.0.0",
         "vite-plugin-static-copy": "^0.16.0"
+    },
+    "dependencies": {
+        "sweetalert2": "^11.7.11"
     }
 }

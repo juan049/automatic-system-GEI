@@ -34,29 +34,59 @@
                 <div class="card mb-3">
                     <div class="card-header">Componentes del insumo</div>
                     <div class="card-body">
+                        <input id="componentsTableInput" type="hidden" name="components-table" value="">
                         <table id="table" class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Porcentaje</th>
                                 <th scope="col">Numero CAS</th>
-                                <td></td>
+                                <th scope="col"></th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <th scope="row">1</th>
-                                <td><input type="text" name="component-name-1" id="component-name-1"></td>
-                                <td><input min="0" max="100" type="number" name="component-percentage-1" id="component-percentage-1"></td>
-                                <td><input type="text" name="component-cas_number-1" id="component-cas_number-1"></td>
-                                <td id="deleteBtn1" class="text-center text-danger cursor-pointer deleteRowBtn"><i class="bi bi-trash"></i></td>
-                            </tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                              </tr>
                             </tbody>
-                          </table>
+                        </table>
 
-                          <div class="d-flex ">
-                            <button id="addRowBtn" class=" btn btn-primary" type="button">Agregar Fila</button>
+                        <div class="mt-5 bordered">
+
+                            {{form_input_text(
+                                div_class: 'form-group d-flex mb-3',
+                                id_name: 'componentName',
+                                label:  'Nombre del comonente',
+                                label_class: 'w-25',
+                                placeholder: 'Nombre del comonente'
+                            )}}
+
+                            
+
+                             {{ form_input_number(
+                                div_class: 'form-group d-flex mb-3',
+                                id_name: 'componentPercentage',
+                                label:  'Porcentaje del comonente',
+                                label_class: 'w-25',
+                                placeholder: 'Porcentaje del comonente',
+                                min: 0,
+                                max: 100
+                             )}}
+
+                            
+
+                            {{form_input_text(
+                                div_class: 'form-group d-flex mb-3',
+                                id_name: 'componentCAS',
+                                label:  'Numero CAS',
+                                label_class: 'w-25',
+                                placeholder: 'Numero CAS'
+                            )}}
+                              
+                            <button id="addRowBtn" class="btn btn-primary w-100" type="button">Agregar Fila</button>
                         </div>
                           
                     </div>
@@ -93,22 +123,7 @@
 </div>
 
 <style>
-    table td {
-  position: relative;
-}
 
-table td input {
-  position: absolute;
-  display: block;
-  top:0;
-  left:0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  border: none;
-  padding: 10px;
-  box-sizing: border-box;
-}
 
 .cursor-pointer {
     cursor: pointer;
@@ -116,6 +131,6 @@ table td input {
 </style>
 
 <script src="{{asset('js/insumo.alta.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+
 
 @endsection
